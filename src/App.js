@@ -9,7 +9,6 @@ import { useMemo } from "react";
 // const render = (status: Status) => {
 //   return <h1>{status}</h1>;
 // };
-import books from "../src/books.json";
 import locations from "../src/locations.json";
 import React from "react";
 import { useState } from "react";
@@ -28,7 +27,7 @@ export default function App() {
     // shouldSort: true,
     // includeMatches: false,
     // findAllMatches: false,
-    minMatchCharLength: 1,
+    minMatchCharLength: 2,
     // location: 0,
     // threshold: 0.6,
     // distance: 100,
@@ -43,7 +42,7 @@ export default function App() {
   // Change the pattern
   const results = fuse.search(query);
   console.log("results", results);
-  const locationResults =  results.map(results => results.item)
+  const locationResults = query ? results.map(results => results.item) : locations
   const listItems = locationResults.map((place) => (
     <li key={place.id}>
       <LocationCard
