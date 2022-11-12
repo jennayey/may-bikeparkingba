@@ -5,17 +5,16 @@ import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
-
+import Paper from "@mui/material/Paper";
 import CardActionArea from "@mui/material/CardActionArea";
 import { useDispatch } from 'react-redux'
 import {changeLocation} from '../features/locationSlice'
 export default function LocationCard(props) {
     const dispatch = useDispatch()
   return (
-    <Card sx={{ width: "100%", marginY: "5px" }}>
-      <CardActionArea onClick={() => dispatch(changeLocation(props.click))}>
-        <CardContent>
-          <Typography variant="h6" component="div">
+    <Paper elevation={0} sx={{ width: "inherit", borderBottom: "1px solid #eee", borderRadius: 0, padding: "20px 20px" }} onClick={() => dispatch(changeLocation(props.click))}>
+   
+          <Typography variant="h6" component="h6">
             {props.locationName}
           </Typography>
 
@@ -30,13 +29,12 @@ export default function LocationCard(props) {
               label="Folding bike friendly"
             />
           </Stack>
-        </CardContent>
-      </CardActionArea>
+      
 
       {/* <CardActions>
       <Button size="small">Learn More</Button>
     </CardActions> */}
-    </Card>
+    </Paper>
   );
 }
 
