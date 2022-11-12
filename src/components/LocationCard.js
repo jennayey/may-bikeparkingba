@@ -12,7 +12,7 @@ import {changeLocation} from '../features/locationSlice'
 export default function LocationCard(props) {
     const dispatch = useDispatch()
   return (
-    <Card sx={{ width: "100%", margin: "20px" }}>
+    <Card sx={{ width: "100%", marginY: "5px" }}>
       <CardActionArea onClick={() => dispatch(changeLocation(props.click))}>
         <CardContent>
           <Typography variant="h6" component="div">

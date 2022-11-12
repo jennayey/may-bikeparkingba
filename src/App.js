@@ -16,6 +16,8 @@ export default function App() {
 
   const currentLocation = useSelector (state=>state.location.value)
 
+  
+
   return (
     
     <div>
@@ -24,9 +26,10 @@ export default function App() {
        <Paper
       sx={{
         backgroundColor: "#eee",
-        minWidth: 400,
+        width: 400,
         display: "flex",
-        margin: "20px",
+        flexDirection:"column",
+        padding: "20px",
         zIndex: 5,
         position: "absolute",
         top: 16,
@@ -34,11 +37,15 @@ export default function App() {
       }}
     >
       <LocationCard
-        locationName="Megamall"
-        locationAddress="Mandaluyong City"
+        locationName="SM MOA"
+        locationAddress="Pasay City"
         click={{lat: 14.546351463713943, lng: 120.98728179987157}}
       />
-        
+      <LocationCard
+        locationName="Quezon City Circle"
+        locationAddress="Quezon City DUH"
+        click={{lat:  14.65240541768059, lng: 121.04935807819123}}
+      />
 
     </Paper>
     </div>
