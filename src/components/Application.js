@@ -12,15 +12,22 @@ import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import "../App.css";
+import { styled } from "@mui/material/styles";
 
+import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import { red, green, blue } from "@mui/material/colors";
+
+import DesktopView from "./DesktopView";
+import MobileView from "./MobileView";
 export default function Application() {
-  // const theme = useTheme();
-  // const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   const currentLocation = useSelector((state) => state.location.value);
   const [query, setQuery] = useState("");
   const handleQuery = (event) => {
     setQuery(event.target.value);
   };
+
 
   const options = {
     // isCaseSensitive: false,
@@ -56,25 +63,49 @@ export default function Application() {
     </li>
   ));
   return (
+    // <Grid container spacing={0}>
+
+    //   <Grid md={8} lg={9} xs={12}>
+    // <MapWrapper currentLocation={currentLocation} />
+    //   </Grid>
+    //   <Grid md={4} lg={3} xs={12}>
+    //     <Sidebar>
+    //     <Paper
+    //         sx={{ display: "flex", alignItems: "center", padding: "2px 10px", }}
+    //       >
+    //         <SearchIcon sx={{ padding: "10px" }} />
+    //         <InputBase
+    //           sx={{ flexGrow: 2 }}
+    //           placeholder="Search Bike Parking"
+    //           value={query}
+    //           onChange={handleQuery}
+    //         />
+    //       </Paper>
+    //       <div className="searchResults">
+    //         <ul>{listItems}</ul>
+    //       </div>
+    //     </Sidebar>
+    //   </Grid>
+    //   {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
+    // </Grid>
+
     <div>
-      <MapWrapper currentLocation={currentLocation} />
-      {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
-      <GreatPaper>
-        <Paper
-          sx={{ display: "flex", alignItems: "center", padding: "2px 10px" }}
-        >
-          <SearchIcon sx={{ padding: "10px" }} />
-          <InputBase 
-          sx={{flexGrow:2}}
-            placeholder="Search Bike Parking"
-            value={query}
-            onChange={handleQuery}
-          />
-        </Paper>
-        <div className="searchResults">
-          <ul>{listItems}</ul>
-        </div>
-      </GreatPaper>
+      {!matches && (
+        <DesktopView
+          location={currentLocation}
+          query={query}
+          handleQuery={handleQuery}
+          listItems={listItems}
+        />
+      )}
+      {matches && (
+        <MobileView
+          location={currentLocation}
+          query={query}
+          handleQuery={handleQuery}
+          listItems={listItems}
+        />
+      )}
     </div>
   );
 }

@@ -1,5 +1,22 @@
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { styled } from "@mui/material/styles";
+
+const ResponsiveMapContainer = styled('div')(({ theme }) => ({
+ 
+  [theme.breakpoints.up("md")]: {
+    width: '100%',
+    height: '100vh'
+  },
+  [theme.breakpoints.down("md")]: {
+
+    height: "50vh",
+  },
+
+  // [theme.breakpoints.between("xs", "sm")]: {
+  
+  // },
+}));
 
 export default function MapWrapper (props) {
     const {isLoaded} = useLoadScript({
@@ -9,7 +26,8 @@ export default function MapWrapper (props) {
       if (!isLoaded) return <div>LOading...</div>;
     //   console.log("TESTING"+LocationCoord.lat);
     return (
-        <GoogleMap
+       <ResponsiveMapContainer>
+         <GoogleMap
           zoom={15}
           center={props.currentLocation}
           mapContainerClassName="map-container"
@@ -17,5 +35,6 @@ export default function MapWrapper (props) {
           <MarkerF position={props.currentLocation} draggable/>
           
         </GoogleMap>
+       </ResponsiveMapContainer>
       );
 }
