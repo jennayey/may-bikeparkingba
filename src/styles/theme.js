@@ -52,6 +52,16 @@ export const theme = createTheme({
       //     }
       //   }
       // },
+      MuiInputBase: {
+        styleOverrides:{
+            input:{
+                '&:hover':{
+                    backgroundColor: '#FF0000'
+                }
+            }
+          
+        }
+      }
     },
     typography: {
       fontFamily: ["GothamBlack", "GothamMedium", "GothamRegular"],

@@ -61,10 +61,11 @@ export default function Application() {
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Paper
-          sx={{ display: "flex", alignItems: "center", padding: "2px 4px" }}
+          sx={{ display: "flex", alignItems: "center", padding: "2px 10px" }}
         >
           <SearchIcon sx={{ padding: "10px" }} />
-          <InputBase
+          <InputBase 
+          sx={{flexGrow:2}}
             placeholder="Search Bike Parking"
             value={query}
             onChange={handleQuery}
