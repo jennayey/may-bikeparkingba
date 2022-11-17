@@ -1,34 +1,51 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from "react";
+import Paper from "@mui/material/Paper";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { styled } from "@mui/material/styles";
+import logo from "../logo-white.png";
+import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
+export default function NavBar(props) {
+  const NavBar = styled(Box)(({ theme }) => ({
+    background: theme.palette.primary.main,
+    padding: "20px 20px",
+  }));
 
-export default function NavBar(params) {
-    return(
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              May Bike Parking Ba?
-            </Typography>
-            <Button color="inherit">About</Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
+  const TopBar = styled(Box)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "space-between",
+    height: "30px",
+    marginBottom: "15px",
+  }));
+  
+  return (
+    <NavBar>
+      <TopBar>
+        <img src={logo} alt="logo" />
 
-
-    )
-
+        <div>
+          <Typography
+            variant="body"
+            color="white"
+            sx={{ marginRight: "15px", cursor: "pointer" }}
+          >
+            About
+          </Typography>
+          <Typography variant="body" color="white" sx={{ cursor: "pointer" }}>
+            Contribute
+          </Typography>
+        </div>
+      </TopBar>
+      <Paper sx={{ display: "flex", alignItems: "center", padding: "2px 5px" }}>
+        <SearchIcon sx={{ padding: "10px" }} />
+        <InputBase
+          sx={{ flexGrow: 2 }}
+          placeholder="Search Bike Parking"
+          value={props.query}
+          onChange={props.handleQuery}
+        />
+      </Paper>
+    </NavBar>
+  );
 }

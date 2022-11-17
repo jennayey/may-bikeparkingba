@@ -12,7 +12,7 @@ const CustomPaper = styled(Paper)(({ theme }) => ({
   position: "absolute",
 
   [theme.breakpoints.up("md")]: {
-    backgroundColor: red[500],
+    // backgroundColor: red[500],
     width: 400,
     top: 20,
     left: 20,
@@ -20,19 +20,18 @@ const CustomPaper = styled(Paper)(({ theme }) => ({
     right: 20,
   },
   [theme.breakpoints.down("md")]: {
-    backgroundColor: blue[500],
-
+    // backgroundColor: blue[500],
     bottom: 0,
-    left: 50,
-    right: 50,
+    left: 0,
+    right: 0,
     height: "50vh",
   },
 
   [theme.breakpoints.between("xs", "sm")]: {
     bottom: 0,
-    left: 20,
-    right: 20,
-    backgroundColor: green[500],
+    left: 0,
+    right: 0,
+    // backgroundColor: green[500],
   },
 }));
 
