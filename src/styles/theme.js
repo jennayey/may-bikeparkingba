@@ -79,6 +79,8 @@ export const theme = createTheme({
     },
     h5: {
       fontFamily: "GothamMedium",
+      fontSize: "1.2rem",
+
     },
 
     h6: {

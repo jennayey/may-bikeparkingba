@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
-
+import LocationPerks from "./LocationPerks";
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
@@ -104,13 +104,21 @@ export default function Application() {
           </Paper>
         </Box>
         <div className="searchResults">
-          {listItems.length > 0 ? 
+          {listItems.length > 0 ? (
             <ul>{listItems}</ul>
-           : 
+          ) : (
             <Typography variant="body">
               No Results Found, maybe try another keyword?
             </Typography>
-          }
+          )}
+        </div>
+        <div className="searchInfo">
+          <Paper sx={{padding: "5%"}} elevation={0}>
+          <Typography variant="h5">Jollibee Mercedes </Typography>
+
+          <Typography variant="body">123 Market Avenue, San Miguel, Pasig City </Typography>
+         <LocationPerks/>
+          </Paper>
         </div>
       </GreatPaper>
     </div>

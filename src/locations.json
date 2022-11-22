@@ -3,15 +3,23 @@
         "id": "pas3",
         "name": "Mall of Asia",
         "address": "Pasay City",
+        "folding": true,
+        "covered": true,
+        "free": true,
+        "notes": null,
         "coordinates": {
             "lat": 14.546351463713943, 
             "lng": 120.98728179987157
         }
     },
-    {        "id":"pas2",
-
+    {        
+        "id":"pas2",
         "name": "Quezon City Circle",
         "address": "Quezon City",
+        "folding": true,
+        "covered": false,
+        "free": true,
+        "notes": null,
         "coordinates": {
             "lat": 14.65240541768059, 
             "lng": 121.04935807819123 
@@ -22,6 +30,10 @@
 
         "name": "Levina PLace",
         "address": "Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "notes": null,
         "coordinates": {
             "lat": 14.58202078289433, 
             "lng": 121.09198182771503 
