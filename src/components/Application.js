@@ -1,6 +1,5 @@
-import React, { useCallback } from "react";
-import { useState, useMemo } from "react";
-import { useTheme } from "@mui/material/styles";
+import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import Fuse from "fuse.js";
 import MapWrapper from "../components/MapWrapper";
@@ -9,13 +8,18 @@ import locations from "../../src/locations.json";
 import GreatPaper from "./GreatPaper";
 import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import InputBase from "@mui/material/InputBase";
+import  Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
 import LocationPerks from "./LocationPerks";
+import { useDispatch } from "react-redux";
+import { changeView } from "../features/locationSlice";
+
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
@@ -43,10 +47,14 @@ const LocationCardMemo = React.memo(LocationCard);
 const fuse = new Fuse(locations, options);
 
 export default function Application() {
-  const currentLocation = useSelector((state) => state.location.value);
+  const dispatch = useDispatch();
+  const currentLocation = useSelector((state) => state.location.details);
+  const currentView = useSelector((state) => state.location.view);
+
   const [query, setQuery] = useState("");
   const handleQuery = (event) => {
     setQuery(event.target.value);
+    console.log("current view: " + currentView);
   };
 
   // Change the pattern
@@ -60,14 +68,14 @@ export default function Application() {
       <LocationCardMemo
         locationName={place.name}
         locationAddress={place.address}
-        click={place.coordinates}
+        click={place}
       />
     </li>
   ));
 
   return (
     <div>
-      <MapWrapper currentLocation={currentLocation} />
+      <MapWrapper currentLocation={currentLocation.coordinates} />
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Box sx={{ backgroundColor: "#16B26E", padding: "20px" }}>
@@ -103,23 +111,39 @@ export default function Application() {
             />
           </Paper>
         </Box>
-        <div className="searchResults">
-          {listItems.length > 0 ? (
-            <ul>{listItems}</ul>
-          ) : (
-            <Typography variant="body">
-              No Results Found, maybe try another keyword?
-            </Typography>
-          )}
-        </div>
-        <div className="searchInfo">
-          <Paper sx={{padding: "5%"}} elevation={0}>
-          <Typography variant="h5">Jollibee Mercedes </Typography>
+        {currentView ? (
+          <div className="searchInfo">
+            <Paper sx={{ padding: "5%" }} elevation={0}>
+              <Button
+                variant="text"
+                color="primary"
+                startIcon={<ChevronLeftIcon/>}
+                onClick={() => {dispatch(changeView(false))}}
+              >
+                Go back
+              </Button>
 
-          <Typography variant="body">123 Market Avenue, San Miguel, Pasig City </Typography>
-         <LocationPerks/>
-          </Paper>
-        </div>
+              <Typography variant="h5">{currentLocation.name}</Typography>
+
+              <Typography variant="body">{currentLocation.address}</Typography>
+              <LocationPerks
+                folding={currentLocation.folding}
+                free={currentLocation.free}
+                covered={currentLocation.covered}
+              />
+            </Paper>
+          </div>
+        ) : (
+          <div className="searchResults">
+            {listItems.length > 0 ? (
+              <ul>{listItems}</ul>
+            ) : (
+              <Typography variant="body">
+                No Results Found, maybe try another keyword?
+              </Typography>
+            )}
+          </div>
+        )}
       </GreatPaper>
     </div>
   );

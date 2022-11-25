@@ -23,7 +23,7 @@ export default function MapWrapper (props) {
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       });
     
-      if (!isLoaded) return <div>LOading...</div>;
+      if (!isLoaded) return <div>Loading...</div>;
     //   console.log("TESTING"+LocationCoord.lat);
     return (
        <ResponsiveMapContainer>

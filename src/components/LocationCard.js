@@ -7,13 +7,18 @@ import Stack from "@mui/material/Stack";
 import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
 
 import CardActionArea from "@mui/material/CardActionArea";
-import { useDispatch } from 'react-redux'
-import {changeLocation} from '../features/locationSlice'
+import { useDispatch } from "react-redux";
+import { changeLocation, changeView } from "../features/locationSlice";
 export default function LocationCard(props) {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <Card sx={{ width: "90%", margin: "10px 5%" }}>
-      <CardActionArea onClick={() => dispatch(changeLocation(props.click))}>
+      <CardActionArea
+        onClick={() => {
+          dispatch(changeLocation(props.click));
+          dispatch(changeView(true));
+        }}
+      >
         <CardContent>
           <Typography variant="h6" component="div">
             {props.locationName}

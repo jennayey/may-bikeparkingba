@@ -39,6 +39,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        text: {
+          paddingLeft: 0,
+        }
+     }
+    },
     MuiDrawer: {
       styleOverrides: {
         paper: {
