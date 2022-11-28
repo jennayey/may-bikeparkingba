@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import * as React from "react";
+import { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Fuse from "fuse.js";
 import MapWrapper from "../components/MapWrapper";
@@ -8,15 +8,17 @@ import locations from "../../src/locations.json";
 import GreatPaper from "./GreatPaper";
 import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import InputBase from "@mui/material/InputBase";
-import  Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
 import LocationPerks from "./LocationPerks";
+import Slide from "@mui/material/Slide";
+import Collapse from '@mui/material/Collapse';
 import { useDispatch } from "react-redux";
 import { changeView } from "../features/locationSlice";
 
@@ -49,6 +51,7 @@ const fuse = new Fuse(locations, options);
 export default function Application() {
   const dispatch = useDispatch();
   const currentLocation = useSelector((state) => state.location.details);
+  const containerRef = useRef(null);
   const currentView = useSelector((state) => state.location.view);
 
   const [query, setQuery] = useState("");
@@ -78,7 +81,10 @@ export default function Application() {
       <MapWrapper currentLocation={currentLocation.coordinates} />
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
-        <Box sx={{ backgroundColor: "#16B26E", padding: "20px" }}>
+        <Box
+          sx={{ backgroundColor: "#16B26E", padding: "20px", overflow: 'hidden' }}
+          ref={containerRef}
+        >
           <TopBar>
             <img src={logo} alt="logo" />
 
@@ -99,17 +105,20 @@ export default function Application() {
               </Typography>
             </div>
           </TopBar>
-          <Paper
-            sx={{ display: "flex", alignItems: "center", padding: "2px 5px" }}
-          >
-            <SearchIcon sx={{ padding: "10px" }} />
-            <InputBase
-              sx={{ flexGrow: 2 }}
-              placeholder="Search Bike Parking"
-              value={query}
-              onChange={handleQuery}
-            />
-          </Paper>
+
+          <Collapse timeout={200} in={!currentView} container={containerRef.current} mountOnEnter unmountOnExit>
+            <Paper
+              sx={{ display: "flex", alignItems: "center", padding: "2px 5px" }}
+            >
+              <SearchIcon sx={{ padding: "10px" }} />
+              <InputBase
+                sx={{ flexGrow: 2 }}
+                placeholder="Search Bike Parking"
+                value={query}
+                onChange={handleQuery}
+              />
+            </Paper>
+          </Collapse>
         </Box>
         {currentView ? (
           <div className="searchInfo">
@@ -117,13 +126,16 @@ export default function Application() {
               <Button
                 variant="text"
                 color="primary"
-                startIcon={<ChevronLeftIcon/>}
-                onClick={() => {dispatch(changeView(false))}}
+                startIcon={<ChevronLeftIcon />}
+                onClick={() => {
+                  dispatch(changeView(false));
+                }}
+                sx={{marginBottom: "15px"}}
               >
                 Go back
               </Button>
 
-              <Typography variant="h5">{currentLocation.name}</Typography>
+              <Typography variant="h4">{currentLocation.name}</Typography>
 
               <Typography variant="body">{currentLocation.address}</Typography>
               <LocationPerks

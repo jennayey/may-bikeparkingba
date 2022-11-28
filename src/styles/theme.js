@@ -83,6 +83,9 @@ export const theme = createTheme({
     },
     h4: {
       fontFamily: "GothamMedium",
+      fontSize: "1.5rem",
+      lineHeight: "2rem"
+
     },
     h5: {
       fontFamily: "GothamMedium",
