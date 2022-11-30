@@ -8,12 +8,15 @@ export const theme = createTheme({
     secondary: {
       main: "#005db9",
     },
+    gray: {
+      main: "#a0aeba",
+    },
     text: {
-      primary: "rgba(13, 18, 38,1)", //headings
+      primary: "#323f4a", //headings
       hint: "rgba(0,0,0,0.38)", //hints
-      secondary: "rgba(13, 18, 38, 0.75)", //headings
+      secondary: "#637381", //headings
       disabled: "rgba(0, 0, 0, 0.7)", //disabled
-      subtitle2: "rgba(76, 88, 125, .8)", //for small heading guides
+      subtitle2: "#375448", //for small heading guides
       linkActive: "#005db9",
       white: "#fff",
     },
@@ -42,7 +45,7 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         text: {
-          paddingLeft: 0,
+          // paddingLeft: 0,
         }
      }
     },
@@ -71,58 +74,59 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["GothamBlack", "GothamMedium", "GothamRegular"],
+    fontFamily: ["ManropeRegular", "ManropeBold"],
     h1: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
     },
     h2: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
     },
     h3: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
     },
     h4: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
       fontSize: "1.5rem",
       lineHeight: "2rem"
 
     },
     h5: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
       fontSize: "1.2rem",
 
     },
 
     h6: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
       fontSize: "1.1rem",
     },
 
     body1: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
       fontSize: "16px",
     },
     body2: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
       fontSize: "14px",
     },
     span: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
     },
     overline: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
     },
     caption: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeBold",
+      fontSize: "13px"
     },
     subtitle1: {
-      fontFamily: "GothamRegular",
+      fontFamily: "ManropeRegular",
     },
     subtitle2: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
     },
     button: {
-      fontFamily: "GothamMedium",
+      fontFamily: "ManropeBold",
     },
   },
 });

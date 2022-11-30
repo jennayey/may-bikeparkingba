@@ -5,7 +5,7 @@
         "address": "Pasay City",
         "folding": true,
         "covered": true,
-        "free": true,
+        "free": false,
         "notes": null,
         "coordinates": {
             "lat": 14.546351463713943, 

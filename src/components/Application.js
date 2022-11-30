@@ -82,7 +82,7 @@ export default function Application() {
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Box
-          sx={{ backgroundColor: "#16B26E", padding: "20px", overflow: 'hidden' }}
+          sx={{ backgroundColor: "#16B26E", padding: "20px" }}
           ref={containerRef}
         >
           <TopBar>
@@ -137,7 +137,7 @@ export default function Application() {
 
               <Typography variant="h4">{currentLocation.name}</Typography>
 
-              <Typography variant="body">{currentLocation.address}</Typography>
+              <Typography variant="body1" color="text.secondary">{currentLocation.address}</Typography>
               <LocationPerks
                 folding={currentLocation.folding}
                 free={currentLocation.free}

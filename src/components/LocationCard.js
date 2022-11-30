@@ -2,13 +2,14 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
-
 import CardActionArea from "@mui/material/CardActionArea";
+import CardMedia from "@mui/material/CardMedia";
+import { Box } from "@mui/system";
 import { useDispatch } from "react-redux";
 import { changeLocation, changeView } from "../features/locationSlice";
+import WarehouseIcon from "@mui/icons-material/Warehouse";
+import PaymentIcon from "@mui/icons-material/Payment";
 export default function LocationCard(props) {
   const dispatch = useDispatch();
   return (
@@ -19,28 +20,55 @@ export default function LocationCard(props) {
           dispatch(changeView(true));
         }}
       >
-        <CardContent>
-          <Typography variant="h6" component="div">
-            {props.locationName}
-          </Typography>
+        {/* <Box sx={{flexGrow: 2}}> */}
+        <CardContent sx={{ display: "flex" }}>
+          <CardMedia
+            component="img"
+            sx={{
+              width: 80,
+              height: 80,
+              marginRight: "12px",
+              borderRadius: "5px",
+            }}
+            image="https://via.placeholder.com/150"
+            alt="Live from space album cover"
+          />
+          <Box>
+            <Typography variant="h6" component="div">
+              {props.locationName}
+            </Typography>
 
-          <Typography variant="body2" color="text.secondary">
-            {props.locationAddress}
-          </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ marginBottom: "10px" }}
+            >
+              {props.locationAddress}
+            </Typography>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <PaymentIcon color={props.click.free ? "primary" : "gray"} fontSize="small" />
+              <WarehouseIcon color={props.click.covered ? "primary" : "gray"} fontSize="small" />
+            </Stack>
+          </Box>
 
-          <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}>
+          {/* <Stack direction="row" spacing={1} sx={{ marginTop: "10px" }}><DirectionsBikeIcon color="primary" />
             <Chip
               size="small"
-              icon={<DirectionsBikeIcon />}
+              icon={<DirectionsBikeIcon color="primary" />}
               label="Folding bike friendly"
             />
-          </Stack>
+          </Stack> */}
         </CardContent>
       </CardActionArea>
 
       {/* <CardActions>
-      <Button size="small">Learn More</Button>
+      <Button size="small"   onClick={() => {
+          dispatch(changeView(true));
+        }}>Details</Button>
+      <Button size="small">View in Google Maps</Button>
+
     </CardActions> */}
+      {/* </Box> */}
     </Card>
   );
 }
