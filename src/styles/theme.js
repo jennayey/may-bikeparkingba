@@ -66,9 +66,9 @@ export const theme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         input: {
-          "&:hover": {
-            backgroundColor: "#FF0000",
-          },
+          // "&:hover": {
+          //   backgroundColor: "#FF0000",
+          // },
         },
       },
     },

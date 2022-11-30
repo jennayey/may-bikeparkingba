@@ -17,16 +17,14 @@ import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
 import LocationPerks from "./LocationPerks";
-import Slide from "@mui/material/Slide";
 import Collapse from '@mui/material/Collapse';
 import { useDispatch } from "react-redux";
 import { changeView } from "../features/locationSlice";
-
+import  Stack  from "@mui/material/Stack";
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   height: "30px",
-  marginBottom: "15px",
 }));
 
 const options = {
@@ -88,27 +86,27 @@ export default function Application() {
           <TopBar>
             <img src={logo} alt="logo" />
 
-            <div>
+            <Stack direction="row" spacing={3}>
               <Typography
-                variant="body"
+                variant="body1"
                 color="white"
-                sx={{ marginRight: "15px", cursor: "pointer" }}
+                sx={{ cursor: "pointer" }}
               >
                 About
               </Typography>
               <Typography
-                variant="body"
+                variant="body1"
                 color="white"
                 sx={{ cursor: "pointer" }}
               >
                 Contribute
               </Typography>
-            </div>
+            </Stack>
           </TopBar>
 
           <Collapse timeout={200} in={!currentView} container={containerRef.current} mountOnEnter unmountOnExit>
             <Paper
-              sx={{ display: "flex", alignItems: "center", padding: "2px 5px" }}
+              sx={{ display: "flex", alignItems: "center", padding: "2px 5px", marginTop: "15px"}}
             >
               <SearchIcon sx={{ padding: "10px" }} />
               <InputBase
@@ -123,6 +121,7 @@ export default function Application() {
         {currentView ? (
           <div className="searchInfo">
             <Paper sx={{ padding: "5%" }} elevation={0}>
+              
               <Button
                 variant="text"
                 color="primary"
@@ -134,6 +133,8 @@ export default function Application() {
               >
                 Go back
               </Button>
+
+              <Box component="img" src="https://via.placeholder.com/720x480" width="100%" sx={{borderRadius: "10px", marginBottom: "20px"}}/>
 
               <Typography variant="h4">{currentLocation.name}</Typography>
 
