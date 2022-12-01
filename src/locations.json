@@ -30,7 +30,7 @@
         "name": "Pan De Manila",
         "address": "C. Raymundo, Pasig City",
         "folding": false,
-        "image": "/pandemanila.jpg",
+        "imgName": "pandemanila.jpg",
         "covered": false,
         "free": true,
         "notes": null,

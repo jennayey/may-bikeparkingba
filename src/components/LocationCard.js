@@ -24,7 +24,7 @@ export default function LocationCard(props) {
       >
         {/* <Box sx={{flexGrow: 2}}> */}
         <CardContent sx={{ display: "flex" }}>
-          <CardMedia
+          {/* <CardMedia
             component="img"
             sx={{
               width: 80,
@@ -32,9 +32,16 @@ export default function LocationCard(props) {
               marginRight: "12px",
               borderRadius: "5px",
             }}
-            image="https://via.placeholder.com/150"
+            image={`../images/${props.click.imgName}.jpg`}
             alt="Live from space album cover"
-          />
+          /> */}
+          <Box component="img" src={`/images/${props.click.imgName}`} sx={{
+              width: 80,
+              height: 80,
+              marginRight: "12px",
+              borderRadius: "5px",
+              objectFit: "cover"
+            }}></Box>
           <Box>
             <Typography variant="h6" component="div">
               {props.locationName}
