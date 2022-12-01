@@ -21,6 +21,7 @@ import Collapse from '@mui/material/Collapse';
 import { useDispatch } from "react-redux";
 import { changeView } from "../features/locationSlice";
 import  Stack  from "@mui/material/Stack";
+import pandemanila from "./../images/pandemanila.jpg"
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
@@ -134,7 +135,7 @@ export default function Application() {
                 Go back
               </Button>
 
-              <Box component="img" src="https://via.placeholder.com/720x480" width="100%" sx={{borderRadius: "10px", marginBottom: "20px"}}/>
+              <Box component="img" src={pandemanila} width="100%" sx={{borderRadius: "10px", marginBottom: "20px"}}/>
 
               <Typography variant="h4">{currentLocation.name}</Typography>
 

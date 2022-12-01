@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { changeLocation, changeView } from "../features/locationSlice";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import PaymentIcon from "@mui/icons-material/Payment";
+import Tooltip from '@mui/material/Tooltip';
+
 export default function LocationCard(props) {
   const dispatch = useDispatch();
   return (
@@ -46,8 +48,14 @@ export default function LocationCard(props) {
               {props.locationAddress}
             </Typography>
             <Stack direction="row" alignItems="center" spacing={1}>
+              <Tooltip title="Free parking" arrow>
               <PaymentIcon color={props.click.free ? "primary" : "gray"} fontSize="small" />
+
+              </Tooltip>
+              <Tooltip title="Covered parking" arrow>
               <WarehouseIcon color={props.click.covered ? "primary" : "gray"} fontSize="small" />
+
+              </Tooltip>
             </Stack>
           </Box>
 

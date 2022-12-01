@@ -27,16 +27,16 @@
     },
     {
         "id": "pas1",
-
-        "name": "Levina Place",
-        "address": "Pasig City",
+        "name": "Pan De Manila",
+        "address": "C. Raymundo, Pasig City",
         "folding": false,
+        "image": "/pandemanila.jpg",
         "covered": false,
         "free": true,
         "notes": null,
         "coordinates": {
-            "lat": 14.58202078289433, 
-            "lng": 121.09198182771503 
+            "lat": 14.584618487614947, 
+            "lng": 121.08825075413354
         }
     }
 
