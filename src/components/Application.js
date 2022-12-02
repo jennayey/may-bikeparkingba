@@ -72,7 +72,7 @@ export default function Application() {
 
   return (
     <div>
-      <MapWrapper currentLocation={currentLocation.coordinates} />
+      <MapWrapper currentLocation={{"lat": currentLocation.lat, "lng": currentLocation.lng}} />
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Box
@@ -121,9 +121,11 @@ export default function Application() {
             {listItems.length > 0 ? (
               <ul>{listItems}</ul>
             ) : (
-              <Typography variant="body">
-                No Results Found, maybe try another keyword?
+             <Box sx={{padding: "20px"}}>
+               <Typography variant="body1">
+                Oops! No Results Found, maybe try another keyword?
               </Typography>
+             </Box>
             )}
           </div>
         )}

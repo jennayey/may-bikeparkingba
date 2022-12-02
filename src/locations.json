@@ -6,38 +6,115 @@
         "folding": true,
         "covered": true,
         "free": false,
-        "notes": null,
-        "coordinates": {
-            "lat": 14.546351463713943, 
-            "lng": 120.98728179987157
-        }
-    },
-    {        
-        "id":"pas2",
-        "name": "Quezon City Circle",
-        "address": "Quezon City",
-        "folding": true,
-        "covered": false,
-        "free": true,
-        "notes": null,
-        "coordinates": {
-            "lat": 14.65240541768059, 
-            "lng": 121.04935807819123 
-        }
+        "lat": 14.5463514637139,
+        "lng": 120.987281799871
     },
     {
         "id": "pas1",
-        "name": "Pan De Manila",
+        "name": "Pan De Manila (Pasig)",
+        "imgname": "pandemanila.jpg",
         "address": "C. Raymundo, Pasig City",
-        "folding": false,
-        "imgName": "pandemanila.jpg",
+        "folding": true,
         "covered": false,
         "free": true,
-        "notes": null,
-        "coordinates": {
-            "lat": 14.584618487614947, 
-            "lng": 121.08825075413354
-        }
+        "lat": 14.5846184876149,
+        "lng": 121.088250754133
+    },
+    {
+        "id": "man1",
+        "name": "SM Megamall",
+        "address": "ADB Avenue, Mandaluyong City",
+        "folding": true,
+        "covered": true,
+        "free": true,
+        "lat": 14.5849031351321,
+        "lng": 121.057323755229
+    },
+    {
+        "id": "pas2",
+        "name": "Puregold Jr. Pasig",
+        "address": "C. Raymundo, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5761423693005,
+        "lng": 121.085529086504
+    },
+    {
+        "id": "pas4",
+        "name": "Kalinaw Coffee",
+        "address": "C. Raymundo, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5859952926362,
+        "lng": 121.08816535383
+    },
+    {
+        "id": "pas5",
+        "name": "Free Choice Mart",
+        "address": "Market Ave., Pasig City",
+        "folding": false,
+        "covered": true,
+        "free": true,
+        "lat": 14.5578813810755,
+        "lng": 121.08307452224
+    },
+    {
+        "id": "pas6",
+        "name": "Mercury Drug Pasig",
+        "address": "Kapasigan, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5638328748323,
+        "lng": 121.075741076905
+    },
+    {
+        "id": "pas7",
+        "name": "Bikezilla",
+        "address": "San Antonio, Pasig",
+        "folding": false,
+        "covered": true,
+        "free": true,
+        "lat": 14.5897001790478,
+        "lng": 121.061562641733
+    },
+    {
+        "id": "pas8",
+        "name": "McDonald's C. Raymundo",
+        "address": "C. Raymundo, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5710315333392,
+        "lng": 121.082666540665
+    },
+    {
+        "id": "pas9 ",
+        "name": "Mercury Drug Rosario Pasig",
+        "address": "Rosario, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5904922003327,
+        "lng": 121.085468922452
+    },
+    {
+        "id": "pas10",
+        "name": "Dunkin Donuts Pasig",
+        "address": "C. Raymundo, Pasig City",
+        "folding": false,
+        "covered": false,
+        "free": true,
+        "lat": 14.5851977430477,
+        "lng": 121.088180777957
+    },
+    {
+        "id": "pas11",
+        "name": "Mercury Drug Pasig",
+        "address": "C. Raymundo, Pasig City",
+        "lat": 14.5706269167317,
+        "lng": 121.082386467528
     }
-
 ]
