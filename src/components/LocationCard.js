@@ -4,7 +4,6 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardMedia from "@mui/material/CardMedia";
 import { Box } from "@mui/system";
 import { useDispatch } from "react-redux";
 import { changeLocation, changeView } from "../features/locationSlice";
@@ -20,6 +19,7 @@ export default function LocationCard(props) {
         onClick={() => {
           dispatch(changeLocation(props.click));
           dispatch(changeView(true));
+          console.log ("Image" + props.click.imgName)
         }}
       >
         {/* <Box sx={{flexGrow: 2}}> */}
@@ -35,7 +35,7 @@ export default function LocationCard(props) {
             image={`../images/${props.click.imgName}.jpg`}
             alt="Live from space album cover"
           /> */}
-          <Box component="img" src={`/images/${props.click.imgName}`} sx={{
+          <Box component="img" src={props.click.imgName===undefined ? `/images/placeholder.png` : `/images/${props.click.imgName}`} sx={{
               width: 80,
               height: 80,
               marginRight: "12px",
@@ -43,6 +43,7 @@ export default function LocationCard(props) {
               objectFit: "cover"
             }}></Box>
           <Box>
+            
             <Typography variant="h6" component="div">
               {props.locationName}
             </Typography>

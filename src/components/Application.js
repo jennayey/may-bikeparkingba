@@ -8,20 +8,16 @@ import locations from "../../src/locations.json";
 import GreatPaper from "./GreatPaper";
 import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import InputBase from "@mui/material/InputBase";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
-import LocationPerks from "./LocationPerks";
 import Collapse from '@mui/material/Collapse';
-import { useDispatch } from "react-redux";
-import { changeView } from "../features/locationSlice";
 import  Stack  from "@mui/material/Stack";
-import pandemanila from "./../images/pandemanila.jpg"
+import LocationInfo from "./LocationInfo";
+
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
@@ -48,7 +44,6 @@ const LocationCardMemo = React.memo(LocationCard);
 const fuse = new Fuse(locations, options);
 
 export default function Application() {
-  const dispatch = useDispatch();
   const currentLocation = useSelector((state) => state.location.details);
   const containerRef = useRef(null);
   const currentView = useSelector((state) => state.location.view);
@@ -120,33 +115,7 @@ export default function Application() {
           </Collapse>
         </Box>
         {currentView ? (
-          <div className="searchInfo">
-            <Paper sx={{ padding: "5%" }} elevation={0}>
-              
-              <Button
-                variant="text"
-                color="primary"
-                startIcon={<ChevronLeftIcon />}
-                onClick={() => {
-                  dispatch(changeView(false));
-                }}
-                sx={{marginBottom: "15px"}}
-              >
-                Go back
-              </Button>
-
-              <Box component="img" src={pandemanila} width="100%" sx={{borderRadius: "10px", marginBottom: "20px"}}/>
-
-              <Typography variant="h4">{currentLocation.name}</Typography>
-
-              <Typography variant="body1" color="text.secondary">{currentLocation.address}</Typography>
-              <LocationPerks
-                folding={currentLocation.folding}
-                free={currentLocation.free}
-                covered={currentLocation.covered}
-              />
-            </Paper>
-          </div>
+          <LocationInfo location={currentLocation}/>
         ) : (
           <div className="searchResults">
             {listItems.length > 0 ? (
