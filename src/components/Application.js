@@ -14,8 +14,8 @@ import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
 import logo from "../logo-white.png";
-import Collapse from '@mui/material/Collapse';
-import  Stack  from "@mui/material/Stack";
+import Collapse from "@mui/material/Collapse";
+import Stack from "@mui/material/Stack";
 import LocationInfo from "./LocationInfo";
 
 const TopBar = styled(Box)(({ theme }) => ({
@@ -30,7 +30,7 @@ const options = {
   // shouldSort: true,
   // includeMatches: false,
   // findAllMatches: false,
-  minMatchCharLength: 2,
+  minMatchCharLength: 4,
   // location: 0,
   // threshold: 0.6,
   // distance: 100,
@@ -72,7 +72,9 @@ export default function Application() {
 
   return (
     <div>
-      <MapWrapper currentLocation={{"lat": currentLocation.lat, "lng": currentLocation.lng}} />
+      <MapWrapper
+        currentLocation={{ lat: currentLocation.lat, lng: currentLocation.lng }}
+      />
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Box
@@ -100,9 +102,20 @@ export default function Application() {
             </Stack>
           </TopBar>
 
-          <Collapse timeout={200} in={!currentView} container={containerRef.current} mountOnEnter unmountOnExit>
+          <Collapse
+            timeout={200}
+            in={!currentView}
+            container={containerRef.current}
+            mountOnEnter
+            unmountOnExit
+          >
             <Paper
-              sx={{ display: "flex", alignItems: "center", padding: "2px 5px", marginTop: "15px"}}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                padding: "2px 5px",
+                marginTop: "15px",
+              }}
             >
               <SearchIcon sx={{ padding: "10px" }} />
               <InputBase
@@ -115,17 +128,21 @@ export default function Application() {
           </Collapse>
         </Box>
         {currentView ? (
-          <LocationInfo location={currentLocation}/>
+          <LocationInfo location={currentLocation} />
+        ) : !query ? (
+          <Box sx={{ padding: "20px" }}>
+            <Typography variant="body1">Try seaching for a place</Typography>
+          </Box>
         ) : (
           <div className="searchResults">
             {listItems.length > 0 ? (
               <ul>{listItems}</ul>
             ) : (
-             <Box sx={{padding: "20px"}}>
-               <Typography variant="body1">
-                Oops! No Results Found, maybe try another keyword?
-              </Typography>
-             </Box>
+              <Box sx={{ padding: "20px" }}>
+                <Typography variant="body1">
+                  Oops! No Results Found, maybe try another keyword?
+                </Typography>
+              </Box>
             )}
           </div>
         )}
