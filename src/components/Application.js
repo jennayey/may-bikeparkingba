@@ -13,17 +13,20 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import "../App.css";
 import { styled } from "@mui/material/styles";
-import logo from "../logo-white.png";
+import icon from "../icon.png";
 import Collapse from "@mui/material/Collapse";
 import Stack from "@mui/material/Stack";
 import LocationInfo from "./LocationInfo";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
+import Link from '@mui/material/Link';
+
 
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
-  height: "30px",
+  alignItems: "center",
+  width: "100%",
 }));
 
 const options = {
@@ -80,27 +83,31 @@ export default function Application() {
       {/* Great Paper is the custom Paper object that resizes based on screen size. For more, see GreatPaper.js */}
       <GreatPaper>
         <Box
-          sx={{ backgroundColor: "#16B26E", padding: "20px" }}
+          sx={{ backgroundColor: "#16B26E", padding: "15px" }}
           ref={containerRef}
         >
           <TopBar>
-            <img src={logo} alt="logo" />
+            <Box component="img" src={icon} alt="logo" width="40px" />
 
             <Stack direction="row" spacing={3}>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 color="white"
                 sx={{ cursor: "pointer" }}
               >
                 About
-              </Typography>
-              <Typography
-                variant="body1"
+              </Typography> */}
+              <Link
+                underline="none"
                 color="white"
+                variant="body1"
                 sx={{ cursor: "pointer" }}
+                href="https://forms.gle/GhCK2h3Z1jumK6Hw8"
+                rel="noopener"
+                target="_blank"
               >
                 Contribute
-              </Typography>
+              </Link>
             </Stack>
           </TopBar>
 
@@ -136,7 +143,10 @@ export default function Application() {
           <LocationInfo location={currentLocation} />
         ) : !query ? (
           <Box sx={{ padding: "20px" }}>
-            <Typography variant="body1">Try searching for a place</Typography>
+            <Typography variant="body1">
+              Try searching for a place. For example: "SM Megamall" or "Pasig
+              City"
+            </Typography>
           </Box>
         ) : (
           <div className="searchResults">

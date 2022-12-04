@@ -37,6 +37,7 @@
         "folding": false,
         "covered": false,
         "free": true,
+        "imgname": "puregold.jpg",
         "lat": 14.5761423693005,
         "lng": 121.085529086504
     },
@@ -47,6 +48,7 @@
         "folding": false,
         "covered": false,
         "free": true,
+        "imgname": "kalinaw.jpg",
         "lat": 14.5859952926362,
         "lng": 121.08816535383
     },
@@ -63,7 +65,8 @@
     {
         "id": "pas6",
         "name": "Mercury Drug Pasig",
-        "address": "Kapasigan, Pasig City",
+        "address": "Kapasigan, Pasig City",        
+        "imgname": "mercurykapasigan.jpg",
         "folding": false,
         "covered": false,
         "free": true,
@@ -107,6 +110,7 @@
         "folding": false,
         "covered": false,
         "free": true,
+        "imgname": "dunkin.jpg",
         "lat": 14.5851977430477,
         "lng": 121.088180777957
     },
@@ -114,7 +118,9 @@
         "id": "pas11",
         "name": "Mercury Drug Pasig",
         "address": "C. Raymundo, Pasig City",
+        "imgname": "mercuryraymundo.jpg",
         "lat": 14.5706269167317,
+        "free": true,
         "lng": 121.082386467528
     }
 ]
