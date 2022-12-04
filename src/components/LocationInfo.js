@@ -25,7 +25,11 @@ export default function LocationInfo(props) {
         </Button>
         <Box
           component="img"
-          src={props.location.imgName===undefined ? `/images/placeholder.png` : `/images/${props.location.imgName}` }
+          src={
+            props.location.imgname === undefined
+              ? `/images/placeholder.png`
+              : `/images/${props.location.imgname}`
+          }
           width="100%"
           sx={{
             objectFit: "cover",

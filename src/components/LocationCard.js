@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { changeLocation, changeView } from "../features/locationSlice";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import PaymentIcon from "@mui/icons-material/Payment";
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip";
 
 export default function LocationCard(props) {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function LocationCard(props) {
         onClick={() => {
           dispatch(changeLocation(props.click));
           dispatch(changeView(true));
-          console.log ("Image" + props.click.imgName)
+          console.log("Image" + props.click.imgname);
         }}
       >
         {/* <Box sx={{flexGrow: 2}}> */}
@@ -31,18 +31,25 @@ export default function LocationCard(props) {
               marginRight: "12px",
               borderRadius: "5px",
             }}
-            image={`../images/${props.click.imgName}.jpg`}
+            image={`../images/${props.click.imgname}.jpg`}
             alt="Live from space album cover"
           /> */}
-          <Box component="img" src={props.click.imgName===undefined ? `/images/placeholder.png` : `/images/${props.click.imgName}`} sx={{
+          <Box
+            component="img"
+            src={
+              props.click.imgname === undefined
+                ? `/images/placeholder.png`
+                : `/images/${props.click.imgname}`
+            }
+            sx={{
               width: 80,
               height: 80,
               marginRight: "12px",
               borderRadius: "5px",
-              objectFit: "cover"
-            }}></Box>
+              objectFit: "cover",
+            }}
+          ></Box>
           <Box>
-            
             <Typography variant="h6" component="div">
               {props.locationName}
             </Typography>
@@ -56,12 +63,16 @@ export default function LocationCard(props) {
             </Typography>
             <Stack direction="row" alignItems="center" spacing={1}>
               <Tooltip title="Free parking" arrow>
-              <PaymentIcon color={props.click.free ? "primary" : "gray"} fontSize="small" />
-
+                <PaymentIcon
+                  color={props.click.free ? "primary" : "gray"}
+                  fontSize="small"
+                />
               </Tooltip>
               <Tooltip title="Covered parking" arrow>
-              <WarehouseIcon color={props.click.covered ? "primary" : "gray"} fontSize="small" />
-
+                <WarehouseIcon
+                  color={props.click.covered ? "primary" : "gray"}
+                  fontSize="small"
+                />
               </Tooltip>
             </Stack>
           </Box>
