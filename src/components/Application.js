@@ -17,6 +17,8 @@ import logo from "../logo-white.png";
 import Collapse from "@mui/material/Collapse";
 import Stack from "@mui/material/Stack";
 import LocationInfo from "./LocationInfo";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
 
 const TopBar = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -124,6 +126,9 @@ export default function Application() {
                 value={query}
                 onChange={handleQuery}
               />
+              <IconButton sx={{ padding: "10px" }} onClick={() => setQuery("")}>
+                <CloseIcon />
+              </IconButton>
             </Paper>
           </Collapse>
         </Box>
@@ -131,7 +136,7 @@ export default function Application() {
           <LocationInfo location={currentLocation} />
         ) : !query ? (
           <Box sx={{ padding: "20px" }}>
-            <Typography variant="body1">Try seaching for a place</Typography>
+            <Typography variant="body1">Try searching for a place</Typography>
           </Box>
         ) : (
           <div className="searchResults">
