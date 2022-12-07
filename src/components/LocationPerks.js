@@ -16,7 +16,7 @@ export default function LocationPerks(props) {
       <Container>
       <PaymentIcon color={props.folding ? "primary" : "gray"} fontSize="small" />
         <Typography variant="body1" sx={{ marginLeft: "5px" }}>
-          Folding-bike friendly
+         {props.folding ? "Folding-bike is allowed inside" : "Folding-bike not allowed inside"}
         </Typography>
       </Container>
 
@@ -24,7 +24,7 @@ export default function LocationPerks(props) {
       <PaymentIcon color={props.free ? "primary" : "gray"} fontSize="small" />
 
         <Typography variant="body1" sx={{ marginLeft: "5px" }}>
-          Free-parking
+         {props.free ? "Free-parking" : "Paid parking"}
         </Typography>
       </Container>
 
@@ -32,7 +32,7 @@ export default function LocationPerks(props) {
       <WarehouseIcon color={props.covered ? "primary" : "gray"} fontSize="small" />
 
         <Typography variant="body1" sx={{ marginLeft: "5px" }}>
-          Covered
+          {props.covered ? "Covered parking" : "Outside parking"}
         </Typography>
       </Container>
     </Box>
